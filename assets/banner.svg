@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a13" />
+    </linearGradient>
+
+    <linearGradient id="glow-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="glow-grad-2" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="accent-text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Filters for Glow -->
+    <filter id="blur-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+    </filter>
+    <filter id="node-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+    </filter>
+
+    <style>
+      /* Dynamic Animations */
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(1.5deg); }
+      }
+      @keyframes floatReverse {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(14px) rotate(-1.5deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.08); }
+      }
+      @keyframes flowDash {
+        to { stroke-dashoffset: -100; }
+      }
+      @keyframes nodePulse {
+        0%, 100% { r: 5px; opacity: 0.8; }
+        50% { r: 8px; opacity: 1; }
+      }
+
+      .floating-bg-1 {
+        animation: floatSlow 8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .floating-bg-2 {
+        animation: floatReverse 10s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .ambient-glow-1 {
+        animation: pulseGlow 6s ease-in-out infinite alternate;
+        transform-origin: 250px 100px;
+      }
+      .ambient-glow-2 {
+        animation: pulseGlow 7s ease-in-out infinite alternate-reverse;
+        transform-origin: 950px 300px;
+      }
+      .data-pipe {
+        stroke-dasharray: 8, 8;
+        animation: flowDash 3s linear infinite;
+      }
+      .node-pulse-point {
+        animation: nodePulse 2.5s ease-in-out infinite;
+      }
+      
+      /* Typography */
+      .banner-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 44px;
+        fill: #f8fafc;
+        letter-spacing: -0.5px;
+      }
+      .banner-badge {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        fill: #38bdf8;
+      }
+      .banner-subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        fill: #94a3b8;
+      }
+      .banner-tagline {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        fill: #cbd5e1;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="1200" height="400" fill="url(#bg-grad)" rx="16" />
+  <rect width="1200" height="400" fill="none" stroke="#334155" stroke-width="1.5" rx="16" opacity="0.6" />
+
+  <!-- DYNAMIC BACKGROUND LAYER (Ambient Pulsing Glows) -->
+  <circle class="ambient-glow-1" cx="240" cy="90" r="160" fill="url(#glow-grad-1)" filter="url(#blur-glow)" />
+  <circle class="ambient-glow-2" cx="960" cy="310" r="180" fill="url(#glow-grad-2)" filter="url(#blur-glow)" />
+
+  <!-- Subtle Blueprint Tech Grid Background -->
+  <g stroke="#334155" stroke-width="0.75" opacity="0.2">
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="160" x2="1200" y2="160" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="320" x2="1200" y2="320" />
+    <line x1="200" y1="0" x2="200" y2="400" />
+    <line x1="400" y1="0" x2="400" y2="400" />
+    <line x1="600" y1="0" x2="600" y2="400" />
+    <line x1="800" y1="0" x2="800" y2="400" />
+    <line x1="1000" y1="0" x2="1000" y2="400" />
+  </g>
+
+  <!-- DYNAMIC INTERACTION: Flowing Data Circuit Pipelines in Background -->
+  <g opacity="0.5">
+    <path class="data-pipe" d="M 60 180 Q 220 120 400 180 T 780 180 T 1140 180" fill="none" stroke="#6366f1" stroke-width="2.5" />
+    <path class="data-pipe" d="M 60 220 Q 240 280 440 220 T 820 220 T 1140 220" fill="none" stroke="#06b6d4" stroke-width="2" />
+  </g>
+
+  <!-- DYNAMIC FLOATING CARDS & NODES (Kept strictly on sides/background so title stays unblocked) -->
+  <g class="floating-bg-1" opacity="0.7">
+    <!-- Left Decorative Low-Code Block -->
+    <rect x="50" y="50" width="130" height="65" rx="8" fill="url(#card-grad)" stroke="#475569" stroke-width="1.2" />
+    <circle cx="75" cy="72" r="7" fill="#6366f1" />
+    <rect x="92" y="68" width="65" height="8" rx="4" fill="#64748b" />
+    <rect x="70" y="92" width="87" height="6" rx="3" fill="#334155" />
+
+    <!-- Left Connection Node -->
+    <circle class="node-pulse-point" cx="180" cy="82" r="5" fill="#38bdf8" filter="url(#node-glow)" />
+  </g>
+
+  <g class="floating-bg-2" opacity="0.7">
+    <!-- Right Decorative BPM & Workflow Block -->
+    <rect x="1010" y="70" width="140" height="75" rx="8" fill="url(#card-grad)" stroke="#475569" stroke-width="1.2" />
+    <circle cx="1035" cy="95" r="7" fill="#10b981" />
+    <rect x="1052" y="91" width="75" height="8" rx="4" fill="#64748b" />
+    <rect x="1030" y="117" width="97" height="6" rx="3" fill="#334155" />
+
+    <!-- Right Node -->
+    <circle class="node-pulse-point" cx="1010" cy="107" r="5" fill="#ec4899" filter="url(#node-glow)" />
+  </g>
+
+  <g class="floating-bg-1" opacity="0.6">
+    <!-- Bottom Left Platform Node -->
+    <rect x="70" y="280" width="120" height="55" rx="8" fill="url(#card-grad)" stroke="#475569" stroke-width="1.2" />
+    <circle cx="92" cy="307" r="6" fill="#f59e0b" />
+    <rect x="107" y="303" width="60" height="8" rx="4" fill="#64748b" />
+  </g>
+
+  <g class="floating-bg-2" opacity="0.6">
+    <!-- Bottom Right Database/API Node -->
+    <rect x="1020" y="270" width="125" height="55" rx="8" fill="url(#card-grad)" stroke="#475569" stroke-width="1.2" />
+    <circle cx="1042" cy="297" r="6" fill="#8b5cf6" />
+    <rect x="1058" y="293" width="65" height="8" rx="4" fill="#64748b" />
+  </g>
+
+  <!-- FOREGROUND LAYER: Title, Subtitle, Tags & Central Content (Crystal clear and permanently in foreground) -->
+  <g id="foreground-content">
+    <!-- Top Pill Category Badge -->
+    <g transform="translate(600, 75)">
+      <rect x="-170" y="-18" width="340" height="36" rx="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" opacity="0.9" />
+      <text class="banner-badge" x="0" y="4" text-anchor="middle">⚡ ENTERPRISE APPLICATION PLATFORMS</text>
+    </g>
+
+    <!-- Main Title -->
+    <text class="banner-title" x="600" y="150" text-anchor="middle">
+      Awesome Enterprise Application Platform
+    </text>
+
+    <!-- Subtitle -->
+    <text class="banner-subtitle" x="600" y="195" text-anchor="middle">
+      Curated Stack of SaaS Leaders &amp; Sovereign Open-Source Frameworks
+    </text>
+
+    <!-- Detailed Scope / Keyword Subline -->
+    <text class="banner-tagline" x="600" y="235" text-anchor="middle">
+      Low-Code Application Platforms (LCAP) • Workflow Automation • RAD Frameworks • Internal Tooling
+    </text>
+
+    <!-- Feature Pills / Highlights Row in Foreground -->
+    <g transform="translate(600, 300)">
+      <!-- Pill 1: Enterprise SaaS -->
+      <g transform="translate(-320, 0)">
+        <rect x="-90" y="-18" width="180" height="36" rx="18" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+        <circle cx="-62" cy="0" r="5" fill="#6366f1" />
+        <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600" fill="#c7d2fe" x="10" y="4" text-anchor="middle">☁️ SaaS Ecosystems</text>
+      </g>
+
+      <!-- Pill 2: Open Source Sovereignty -->
+      <g transform="translate(-105, 0)">
+        <rect x="-95" y="-18" width="190" height="36" rx="18" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+        <circle cx="-67" cy="0" r="5" fill="#10b981" />
+        <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600" fill="#a7f3d0" x="12" y="4" text-anchor="middle">🔓 Open-Source RAD</text>
+      </g>
+
+      <!-- Pill 3: Low-Code Automation -->
+      <g transform="translate(110, 0)">
+        <rect x="-90" y="-18" width="180" height="36" rx="18" fill="#082f49" stroke="#0ea5e9" stroke-width="1" />
+        <circle cx="-62" cy="0" r="5" fill="#0ea5e9" />
+        <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600" fill="#bae6fd" x="10" y="4" text-anchor="middle">⚙️ Workflow &amp; BPM</text>
+      </g>
+
+      <!-- Pill 4: Production Ready -->
+      <g transform="translate(320, 0)">
+        <rect x="-90" y="-18" width="180" height="36" rx="18" fill="#4a044e" stroke="#d946ef" stroke-width="1" />
+        <circle cx="-62" cy="0" r="5" fill="#d946ef" />
+        <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="600" fill="#f5d0fe" x="10" y="4" text-anchor="middle">🚀 Internal Tools</text>
+      </g>
+    </g>
+
+    <!-- Subtle Bottom Credit/Status -->
+    <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#64748b" x="600" y="370" text-anchor="middle">
+      Continuously Maintained &amp; Curated for Architects, IT Leaders &amp; Platform Engineers
+    </text>
+  </g>
+</svg>
